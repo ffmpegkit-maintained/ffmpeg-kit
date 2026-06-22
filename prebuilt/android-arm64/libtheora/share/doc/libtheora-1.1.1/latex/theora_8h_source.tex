@@ -1,0 +1,220 @@
+\doxysection{theora.\+h}
+\label{theora_8h_source}\index{theora.h@{theora.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/********************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ THIS\ FILE\ IS\ PART\ OF\ THE\ OggTheora\ SOFTWARE\ CODEC\ SOURCE\ CODE.\ \ \ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ USE,\ DISTRIBUTION\ AND\ REPRODUCTION\ OF\ THIS\ LIBRARY\ SOURCE\ IS\ \ \ \ \ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ GOVERNED\ BY\ A\ BSD-\/STYLE\ SOURCE\ LICENSE\ INCLUDED\ WITH\ THIS\ SOURCE\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ IN\ 'COPYING'.\ PLEASE\ READ\ THESE\ TERMS\ BEFORE\ DISTRIBUTING.\ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ THE\ Theora\ SOURCE\ CODE\ IS\ COPYRIGHT\ (C)\ 2002-\/2009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ by\ the\ Xiph.Org\ Foundation\ http://www.xiph.org/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ ********************************************************************}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ \ function:}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ \ last\ mod:\ \$Id:\ theora.h,v\ 1.17\ 2003/12/06\ 18:06:19\ arc\ Exp\ \$}}
+\DoxyCodeLine{00015\ \textcolor{comment}{}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ ********************************************************************/}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#ifndef\ \_O\_THEORA\_H\_}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ \_O\_THEORA\_H\_}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <stddef.h>}\ \ \ \ \ \textcolor{comment}{/*\ for\ size\_t\ */}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <ogg/ogg.h>}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00121\ \textcolor{comment}{/*\ \ @\{\ */}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00147\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ y\_width;\ \ \ \ \ \ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ y\_height;\ \ \ \ \ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ y\_stride;\ \ \ \ \ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ uv\_width;\ \ \ \ \ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ uv\_height;\ \ \ \ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ uv\_stride;\ \ \ \ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *y;\ \ \ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *u;\ \ \ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *v;\ \ \ }
+\DoxyCodeLine{00159\ \}\ yuv\_buffer;}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00164\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00165\ \ \ OC\_CS\_UNSPECIFIED,\ \ \ \ }
+\DoxyCodeLine{00166\ \ \ OC\_CS\_ITU\_REC\_470M,\ \ \ }
+\DoxyCodeLine{00167\ \ \ OC\_CS\_ITU\_REC\_470BG,\ \ }
+\DoxyCodeLine{00168\ \ \ OC\_CS\_NSPACES\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00169\ \}\ theora\_colorspace;}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00178\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00179\ \ \ OC\_PF\_420,\ \ \ \ }
+\DoxyCodeLine{00180\ \ \ OC\_PF\_RSVD,\ \ \ }
+\DoxyCodeLine{00181\ \ \ OC\_PF\_422,\ \ \ \ }
+\DoxyCodeLine{00182\ \ \ OC\_PF\_444,\ \ \ \ }
+\DoxyCodeLine{00183\ \}\ theora\_pixelformat;}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00206\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00207\ \ \ ogg\_uint32\_t\ \ width;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00208\ \ \ ogg\_uint32\_t\ \ height;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00209\ \ \ ogg\_uint32\_t\ \ frame\_width;\ }
+\DoxyCodeLine{00210\ \ \ ogg\_uint32\_t\ \ frame\_height;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00211\ \ \ ogg\_uint32\_t\ \ offset\_x;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00212\ \ \ ogg\_uint32\_t\ \ offset\_y;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00213\ \ \ ogg\_uint32\_t\ \ fps\_numerator;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00214\ \ \ ogg\_uint32\_t\ \ fps\_denominator;\ \ \ \ }
+\DoxyCodeLine{00215\ \ \ ogg\_uint32\_t\ \ aspect\_numerator;\ \ \ }
+\DoxyCodeLine{00216\ \ \ ogg\_uint32\_t\ \ aspect\_denominator;\ }
+\DoxyCodeLine{00217\ \ \ theora\_colorspace\ colorspace;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00218\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ target\_bitrate;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00219\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ quality;\ \ }
+\DoxyCodeLine{00220\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ quick\_p;\ \ }
+\DoxyCodeLine{00222\ \ \ \textcolor{comment}{/*\ decode\ only\ */}}
+\DoxyCodeLine{00223\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ version\_major;}
+\DoxyCodeLine{00224\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ version\_minor;}
+\DoxyCodeLine{00225\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ version\_subminor;}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \textcolor{keywordtype}{void}\ *codec\_setup;}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \textcolor{comment}{/*\ encode\ only\ */}}
+\DoxyCodeLine{00230\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ dropframes\_p;}
+\DoxyCodeLine{00231\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ keyframe\_auto\_p;}
+\DoxyCodeLine{00232\ \ \ ogg\_uint32\_t\ \ keyframe\_frequency;}
+\DoxyCodeLine{00233\ \ \ ogg\_uint32\_t\ \ keyframe\_frequency\_force;\ \ \textcolor{comment}{/*\ also\ used\ for\ decode\ init\ to}}
+\DoxyCodeLine{00234\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ get\ granpos\ shift\ correct\ */}}
+\DoxyCodeLine{00235\ \ \ ogg\_uint32\_t\ \ keyframe\_data\_target\_bitrate;}
+\DoxyCodeLine{00236\ \ \ ogg\_int32\_t\ \ \ keyframe\_auto\_threshold;}
+\DoxyCodeLine{00237\ \ \ ogg\_uint32\_t\ \ keyframe\_mindistance;}
+\DoxyCodeLine{00238\ \ \ ogg\_int32\_t\ \ \ noise\_sensitivity;}
+\DoxyCodeLine{00239\ \ \ ogg\_int32\_t\ \ \ sharpness;}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ theora\_pixelformat\ pixelformat;\ \ }
+\DoxyCodeLine{00243\ \}\ theora\_info;}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00247\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00248\ \ \ theora\_info\ *i;}
+\DoxyCodeLine{00249\ \ \ ogg\_int64\_t\ granulepos;}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \textcolor{keywordtype}{void}\ *internal\_encode;}
+\DoxyCodeLine{00252\ \ \ \textcolor{keywordtype}{void}\ *internal\_decode;}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \}\ theora\_state;}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00275\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }theora\_comment\{}
+\DoxyCodeLine{00276\ \ \ \textcolor{keywordtype}{char}\ **user\_comments;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00277\ \ \ \textcolor{keywordtype}{int}\ \ \ *comment\_lengths;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00278\ \ \ \textcolor{keywordtype}{int}\ \ \ \ comments;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00279\ \ \ \textcolor{keywordtype}{char}\ \ *vendor;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00281\ \}\ theora\_comment;}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00285\ \textcolor{comment}{/*\ \(\backslash\)anchor\ decctlcodes\_old}}
+\DoxyCodeLine{00286\ \textcolor{comment}{\ *\ These\ are\ the\ available\ request\ codes\ for\ theora\_control()}}
+\DoxyCodeLine{00287\ \textcolor{comment}{\ *\ when\ called\ with\ a\ decoder\ instance.}}
+\DoxyCodeLine{00288\ \textcolor{comment}{\ *\ By\ convention\ decoder\ control\ codes\ are\ odd,\ to\ distinguish\ }}
+\DoxyCodeLine{00289\ \textcolor{comment}{\ *\ them\ from\ \(\backslash\)ref\ encctlcodes\_old\ "{}encoder\ control\ codes"{}\ which}}
+\DoxyCodeLine{00290\ \textcolor{comment}{\ *\ are\ even.}}
+\DoxyCodeLine{00291\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00292\ \textcolor{comment}{\ *\ Note\ that\ since\ the\ 1.0\ release,\ both\ the\ legacy\ and\ the\ final}}
+\DoxyCodeLine{00293\ \textcolor{comment}{\ *\ implementation\ accept\ all\ the\ same\ control\ codes,\ but\ only\ the}}
+\DoxyCodeLine{00294\ \textcolor{comment}{\ *\ final\ API\ declares\ the\ newer\ codes.}}
+\DoxyCodeLine{00295\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00296\ \textcolor{comment}{\ *\ Keep\ any\ experimental\ or\ vendor-\/specific\ values\ above\ \(\backslash\)c\ 0x8000.*/}}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\#define\ TH\_DECCTL\_GET\_PPLEVEL\_MAX\ (1)}}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{\#define\ TH\_DECCTL\_SET\_PPLEVEL\ (3)}}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00327\ \textcolor{preprocessor}{\#define\ TH\_ENCCTL\_SET\_KEYFRAME\_FREQUENCY\_FORCE\ (4)}}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00336\ \textcolor{preprocessor}{\#define\ TH\_DECCTL\_SET\_GRANPOS\ (5)}}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\#define\ TH\_ENCCTL\_SET\_QUANT\_PARAMS\ (2)}}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00382\ \textcolor{preprocessor}{\#define\ TH\_ENCCTL\_SET\_VP3\_COMPATIBLE\ (10)}}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00397\ \textcolor{preprocessor}{\#define\ TH\_ENCCTL\_GET\_SPLEVEL\_MAX\ (12)}}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00412\ \textcolor{preprocessor}{\#define\ TH\_ENCCTL\_SET\_SPLEVEL\ (14)}}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00416\ \textcolor{preprocessor}{\#define\ OC\_FAULT\ \ \ \ \ \ \ -\/1\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00417\ \textcolor{preprocessor}{\#define\ OC\_EINVAL\ \ \ \ \ \ -\/10\ \ \ \ \ \ }}
+\DoxyCodeLine{00418\ \textcolor{preprocessor}{\#define\ OC\_DISABLED\ \ \ \ -\/11\ \ \ \ \ \ }}
+\DoxyCodeLine{00419\ \textcolor{preprocessor}{\#define\ OC\_BADHEADER\ \ \ -\/20\ \ \ \ \ \ }}
+\DoxyCodeLine{00420\ \textcolor{preprocessor}{\#define\ OC\_NOTFORMAT\ \ \ -\/21\ \ \ \ \ \ }}
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{\#define\ OC\_VERSION\ \ \ \ \ -\/22\ \ \ \ \ \ }}
+\DoxyCodeLine{00422\ \textcolor{preprocessor}{\#define\ OC\_IMPL\ \ \ \ \ \ \ \ -\/23\ \ \ \ \ \ }}
+\DoxyCodeLine{00423\ \textcolor{preprocessor}{\#define\ OC\_BADPACKET\ \ \ -\/24\ \ \ \ \ \ }}
+\DoxyCodeLine{00424\ \textcolor{preprocessor}{\#define\ OC\_NEWPACKET\ \ \ -\/25\ \ \ \ \ \ }}
+\DoxyCodeLine{00425\ \textcolor{preprocessor}{\#define\ OC\_DUPFRAME\ \ \ \ 1\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00431\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *theora\_version\_string(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00442\ \textcolor{keyword}{extern}\ ogg\_uint32\_t\ theora\_version\_number(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00450\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ theora\_encode\_init(theora\_state\ *th,\ theora\_info\ *ti);}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00462\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ theora\_encode\_YUVin(theora\_state\ *t,\ yuv\_buffer\ *yuv);}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00476\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ theora\_encode\_packetout(\ theora\_state\ *t,\ \textcolor{keywordtype}{int}\ last\_p,}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ogg\_packet\ *op);}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00489\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ theora\_encode\_header(theora\_state\ *t,\ ogg\_packet\ *op);}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00502\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ theora\_encode\_comment(theora\_comment\ *tc,\ ogg\_packet\ *op);}
+\DoxyCodeLine{00503\ }
+\DoxyCodeLine{00514\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ theora\_encode\_tables(theora\_state\ *t,\ ogg\_packet\ *op);}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00557\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ theora\_decode\_header(theora\_info\ *ci,\ theora\_comment\ *cc,}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ogg\_packet\ *op);}
+\DoxyCodeLine{00559\ }
+\DoxyCodeLine{00568\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ theora\_decode\_init(theora\_state\ *th,\ theora\_info\ *c);}
+\DoxyCodeLine{00569\ }
+\DoxyCodeLine{00577\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ theora\_decode\_packetin(theora\_state\ *th,ogg\_packet\ *op);}
+\DoxyCodeLine{00578\ }
+\DoxyCodeLine{00589\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ theora\_decode\_YUVout(theora\_state\ *th,yuv\_buffer\ *yuv);}
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00603\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ theora\_packet\_isheader(ogg\_packet\ *op);}
+\DoxyCodeLine{00604\ }
+\DoxyCodeLine{00615\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ theora\_packet\_iskeyframe(ogg\_packet\ *op);}
+\DoxyCodeLine{00616\ }
+\DoxyCodeLine{00642\ \textcolor{keywordtype}{int}\ theora\_granule\_shift(theora\_info\ *ti);}
+\DoxyCodeLine{00643\ }
+\DoxyCodeLine{00660\ \textcolor{keyword}{extern}\ ogg\_int64\_t\ theora\_granule\_frame(theora\_state\ *th,ogg\_int64\_t\ granulepos);}
+\DoxyCodeLine{00661\ }
+\DoxyCodeLine{00677\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ theora\_granule\_time(theora\_state\ *th,ogg\_int64\_t\ granulepos);}
+\DoxyCodeLine{00678\ }
+\DoxyCodeLine{00685\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ theora\_info\_init(theora\_info\ *c);}
+\DoxyCodeLine{00686\ }
+\DoxyCodeLine{00692\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ theora\_info\_clear(theora\_info\ *c);}
+\DoxyCodeLine{00693\ }
+\DoxyCodeLine{00698\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ theora\_clear(theora\_state\ *t);}
+\DoxyCodeLine{00699\ }
+\DoxyCodeLine{00704\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ theora\_comment\_init(theora\_comment\ *tc);}
+\DoxyCodeLine{00705\ }
+\DoxyCodeLine{00718\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ theora\_comment\_add(theora\_comment\ *tc,\ \textcolor{keywordtype}{char}\ *comment);}
+\DoxyCodeLine{00719\ }
+\DoxyCodeLine{00732\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ theora\_comment\_add\_tag(theora\_comment\ *tc,}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *tag,\ \textcolor{keywordtype}{char}\ *value);}
+\DoxyCodeLine{00734\ }
+\DoxyCodeLine{00749\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *theora\_comment\_query(theora\_comment\ *tc,\ \textcolor{keywordtype}{char}\ *tag,\ \textcolor{keywordtype}{int}\ count);}
+\DoxyCodeLine{00750\ }
+\DoxyCodeLine{00760\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \ \ theora\_comment\_query\_count(theora\_comment\ *tc,\ \textcolor{keywordtype}{char}\ *tag);}
+\DoxyCodeLine{00761\ }
+\DoxyCodeLine{00766\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \ theora\_comment\_clear(theora\_comment\ *tc);}
+\DoxyCodeLine{00767\ }
+\DoxyCodeLine{00776\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ theora\_control(theora\_state\ *th,\textcolor{keywordtype}{int}\ req,\textcolor{keywordtype}{void}\ *buf,\textcolor{keywordtype}{size\_t}\ buf\_sz);}
+\DoxyCodeLine{00777\ }
+\DoxyCodeLine{00778\ \textcolor{comment}{/*\ @\}\ */}\ \textcolor{comment}{/*\ end\ oldfuncs\ doxygen\ group\ */}}
+\DoxyCodeLine{00779\ }
+\DoxyCodeLine{00780\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00781\ \}}
+\DoxyCodeLine{00782\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00783\ }
+\DoxyCodeLine{00784\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_O\_THEORA\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

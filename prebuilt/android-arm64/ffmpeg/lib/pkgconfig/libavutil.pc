@@ -1,0 +1,14 @@
+prefix=/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/ffmpeg
+exec_prefix=${prefix}
+libdir=/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/ffmpeg/lib
+includedir=/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/ffmpeg/include
+
+Name: libavutil
+Description: FFmpeg utility library
+Version: 58.2.100
+Requires: 
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavutil 
+Libs.private: -pthread -lm -latomic
+Cflags: -I${includedir}

@@ -1,0 +1,13 @@
+prefix=/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/libsndfile
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: sndfile
+Description: A library for reading and writing audio files
+Requires:
+Requires.private:  
+Version: 1.2.0
+Libs: -L${libdir} -lsndfile
+Libs.private: 
+Cflags: -I${includedir}

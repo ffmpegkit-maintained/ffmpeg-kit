@@ -1,0 +1,12 @@
+prefix="/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64"/lame
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libmp3lame
+Description: lame mp3 encoder library
+Version: 3.100
+
+Requires:
+Libs: -L${libdir} -lmp3lame
+Cflags: -I${includedir}

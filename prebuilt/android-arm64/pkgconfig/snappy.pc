@@ -1,0 +1,12 @@
+prefix="/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64"/snappy
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: snappy
+Description: a fast compressor/decompressor
+Version: 1.1.9
+
+Requires:
+Libs: -L${libdir} -lz -lc++
+Cflags: -I${includedir}

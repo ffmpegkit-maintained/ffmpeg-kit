@@ -1,0 +1,8 @@
+libdir=/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/libilbc/lib
+includedir=/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/libilbc/include
+
+Name: libilbc
+Description: Internet Low Bitrate Codec (iLBC) library
+Version: 3.0.4
+Libs: -L${libdir} -lilbc
+Cflags: -I${includedir}/

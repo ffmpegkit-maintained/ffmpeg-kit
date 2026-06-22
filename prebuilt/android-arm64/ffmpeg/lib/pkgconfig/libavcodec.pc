@@ -1,0 +1,14 @@
+prefix=/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/ffmpeg
+exec_prefix=${prefix}
+libdir=/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/ffmpeg/lib
+includedir=/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/ffmpeg/include
+
+Name: libavcodec
+Description: FFmpeg codec library
+Version: 60.3.100
+Requires: 
+Requires.private: libswresample >= 4.10.100, libavutil >= 58.2.100
+Conflicts:
+Libs: -L${libdir}  -lavcodec 
+Libs.private: -landroid -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/libvpx/lib -lvpx -lm -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/libvpx/lib -lvpx -lm -landroid -landroid -landroid -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/libvpx/lib -lvpx -lm -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/libvpx/lib -lvpx -lm -landroid -pthread -lm -latomic -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/dav1d/lib -ldav1d -pthread -lsnappy -lstdc++ -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/libaom/lib -laom -lm -lilbc -pthread -lmp3lame -lm -lopencore-amrnb -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/opus/lib -lopus -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/shine/lib -lm -lshine -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/speex/lib -lspeex -ltheoraenc -ltheoradec -logg -ltwolame -lvo-amrwbenc -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/libvorbis/lib -lvorbis -lm -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/libogg/lib -logg -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/libvorbis/lib -lvorbisenc -lvorbis -lm -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/libogg/lib -logg -L/home/runner/.ndk/android-ndk-r26c/platforms/android-24/arch-arm64/usr/lib -lz
+Cflags: -I${includedir}

@@ -1,0 +1,9 @@
+prefix=/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/dav1d
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: libdav1d
+Description: AV1 decoding library
+Version: 1.2.1
+Libs: -L${libdir} -ldav1d -pthread
+Cflags: -I${includedir} -pthread

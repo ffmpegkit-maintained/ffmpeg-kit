@@ -1,0 +1,196 @@
+3.0.5
+colorspace: add ST.428-1 (gamma 2.6) transfer function
+depth: fix AVX-512 integer to float border handling (introduced in 2.6)
+depth: fix NEON dither border handling (introduced in 3.0)
+graph: fix clipping in alpha premultiplication (introduced in 3.0)
+x86: optimizations for AMD Zen4 processors
+
+3.0.4
+colorspace: fix ARIB STD-B67 constant-luminance EOTF (introduced in 2.6)
+colorspace: filter negative values from sRGB-like transfer functions
+common: compilation fixes on esoteric architectures
+graph: fix active region with chroma subsampling
+
+3.0.3
+depth: fix out-of-bounds read in SSE2/AVX2 error diffusion (introduced in 2.5)
+colorspace: revert SMPTE 240M behavior change (introduced in 3.0.2)
+
+3.0.2
+api: default to ZIMG_CPU_AUTO when graph params are null
+colorspace: fix incorrect SMPTE 240M transfer function
+colorspace: fix underflow in AVX-512 ST.2084 transfer functions
+graph: fix conversion from fullrange grey to RGB
+arm: fix data alignment
+x86: optimizations for AMD Zen3 processors
+
+3.0.1
+graph: fix handling of default nominal_peak_luminance (introduced in 3.0)
+
+3.0 (API 2.4)
+api: support alpha channel as the fourth plane
+colorspace: accept UNSPECIFIED transfer characteristics in more situations
+colorspace: fix conversion from ICtCp to ARIB STD-B67
+depth: fix out of bounds access in SSE2 ordered dither
+graph: rewrite for alpha channel support
+resize: fix incorrect rounding when calculating pixel coordinates
+resize: AVX-512 VNNI code paths
+arm: NEON/ASIMD code paths
+
+2.9.3
+resize: add spline64 filter
+
+2.9.2
+colorspace: fix crash on invalid conversion from unspec to real primaries
+x86: additional optimizations for AMD Piledriver
+x86: optimizations for AMD Zen2 processors
+
+2.9.1:
+resize: fix incorrect spline36 coefficients (introduced in 2.9)
+
+2.9:
+colorspace: improve accuracy of SSE2 LUT-based transfer functions
+depth: AVX2 and AVX-512 code paths for limited range upsampling
+graph: optimize tile width calculation
+graph: reduce execution overhead
+graph: skip processing pixels outside of active window
+resize: change default bicubic from Mitchell-Netravali to Catmull-Rom
+resize: make output bit-exact regardless of active window dimensions
+x86: optimizations for AMD Piledriver and Zen1 processors
+
+2.8:
+api: rename colorspace enum values
+colorspace: AVX-512 code paths for commonly used transfer functions
+colorspace: optimize SSE2 LUT-based transfer functions
+common: reduce execution overhead
+depth: increase ordered dither pattern from 8x8 to 16x16
+depth: use blue noise instead of white for random dither
+depth: use different dither pattern on each color component
+resize: optimize x86 SIMD horizontal downsampling with >8 taps
+x86: cache detection on AMD processors
+x86: optimizations for AMD Excavator processors
+
+2.7.5:
+depth: fix SSE2 byte->float when width+4 is mod16
+resize: allow downsampling to very low resolutions
+
+2.7.4:
+x86: fix crash on Yorkfield (Core 2 Quad) processors (introduced in 2.7)
+
+2.7.3
+resize: fix performance drop in certain resampling ratios
+
+2.7.2
+graph: fix image corruption in certain conversions (introduced in 2.7)
+resize: fix AVX-512 horizontal resize with certain widths (introduced in 2.6)
+
+2.7.1
+colorspace: fix incorrect ST.428 primaries (introduced in 2.7)
+colorspace: preserve BTB/WTW when approximate_gamma is set
+colorspace: optimize handling of IEC 61966-2-4 transfer characteristics
+
+2.7
+colorspace: add support for additional matrix/transfer/primaries
+graph: reduce buffer copies when converting from grey to color
+graph: reduce buffer copies when performing colorspace conversion
+graph: process input planes separately when possible
+graph: optimize calculation of tile width
+x86: automatic cache size detection for Intel processors
+
+2.6.3
+resize: fix crash in AVX-512 resizer with GCC
+resize: improve cache efficiency in AVX-512 horizontal resizers
+
+2.6.2
+depth: fix AVX-512 clamping of negative pixels
+graph: fix WORD greyscale to YUV conversion
+
+2.6.1
+depth: fix SSE2 conversions with mod4 and mod8 widths (introduced in 2.6)
+resize: fix heap corruption in AVX2 horizontal resizer (introduced in 2.6)
+
+2.6 (API 2.3)
+api: add ZIMG_CPU_AUTO_64B for AVX-512 compatibility
+colorspace: add support for ITU-R BT.2100 ICtCp
+colorspace: add support for constant luminance ITU-R BT.2100 HLG
+colorspace: add support for SMPTE ST.431-2 (traditional DCI-P3)
+colorspace: add support for chromaticity-derived NCL/CL matrices
+colorspace: assume 1000 cd/m^2 peak luminance for HLG
+colorspace: fix crash on bad colorspace definition
+depth: optimized SSE2/AVX2 conversions with 8/16-bit input
+resize: optimized AVX2 horizontal upsampler memory usage
+resize: optimized x86 SIMD function calling
+x86: AVX-512 code paths for key functions
+
+2.5.1
+depth: fix AVX2 conversion from half to byte/word (introduced in 2.1)
+
+2.5
+api: images larger than 16384x16384 rejected on 32-bit (2Gx2G on 64-bit)
+depth: SSE2 and AVX2 error diffusion implementation
+resize: AVX2 integer resize implementation
+x86: fix crash with AVX CPU on non-AVX OS
+
+2.4
+colorspace: add support for IEC 61966-2-1 (sRGB)
+colorspace: transfer function conversion conforms to ITU-R BT.2100
+
+2.3 (API 2.2)
+api: add 'allow_approximate_gamma' flag to zimg_graph_builder_params
+colorspace: add support for SMPTE ST.2084 (Dolby PQ) and ARIB STD-B67 (HLG)
+colorspace: add support for SMPTE ST.432-1 (P3-D65)
+colorspace: SSE2 and AVX2 LUT-based transfer function implementation
+
+2.2.1:
+resize: fix crash on horizontal resize with negative shift amount
+resize: fix illegal instruction on SSE2 horizontal resize with MSVC (introduced in 2.2)
+
+2.2 (API 2.1):
+api: add fields to zimg_image_format for image active region
+colorspace: add separate error messages for ill-formed colorspace definition
+resize: fix crash on negative or zero lanczos tap count
+resize: improve performance on SSE2 horizontal resize
+
+2.1:
+graph: optimize resizing to 4:4:4/RGB target
+graph: optimize resizing with different output pixel type
+x86: AVX and AVX2 code paths
+x86: fast half-precision support
+vszimg: deprecated and removed
+
+2.0.4:
+graph: fix possible infinite loop when converting integer to float
+
+2.0.3:
+api: fix handling of unrecognized colorspaces
+
+2.0.2:
+graph: fix crash when resizing in only one direction
+
+2.0.1:
+colorspace: fix incorrect gamut processing
+graph: fix possible buffer overflow on certain widths
+
+2.0 (API 2.0):
+api: new simplified API for all-in-one conversions
+api: remove zimg_set_cpu
+api: add zimg_get_version_info and zimg_get_api_version
+colorspace: add YCgCo matrix
+depth: clamp integer output to bit depth limit (e.g. 10-bit => 0-1023)
+depth: fix incorrect strength of random dither
+resize: clamp integer output to bit depth limit
+resize: fix incorrect output for point filter
+vszimg: new resize.X compatible syntax
+vszimg: support for color to greyscale conversion
+
+1.1.1:
+fix border handling in SSE2 horizontal resize
+
+1.1:
+cache-efficient 2d resizer
+rewrite horizontal resize kernels
+fix incorrect strength of ordered dither
+fix inaccurate error diffusion dither
+fix integer underflow in SSE2 dither
+
+1.0:
+initial release

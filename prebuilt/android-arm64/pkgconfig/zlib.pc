@@ -1,0 +1,12 @@
+prefix=""/usr
+exec_prefix=${prefix}
+libdir=/home/runner/.ndk/android-ndk-r26c/platforms/android-24/arch-arm64/usr/lib
+includedir=${prefix}/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -lz
+Cflags: -I${includedir}

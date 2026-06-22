@@ -1,0 +1,12 @@
+prefix="/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64"/libaom
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: aom
+Description: AV1 codec library v3.6.1.
+Version: 3.6.1
+
+Requires:
+Libs: -L${libdir} -laom -lm
+Cflags: -I${includedir}

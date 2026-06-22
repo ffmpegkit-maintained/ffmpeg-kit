@@ -1,0 +1,13 @@
+prefix=/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/libxml2
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+modules=1
+
+Name: libXML
+Version: 2.11.4
+Description: libXML library version2.
+Requires:
+Libs: -L${libdir} -lxml2
+Libs.private: -L/home/runner/.ndk/android-ndk-r26c/platforms/android-24/arch-arm64/usr/lib -lz      -lm  
+Cflags: -I${includedir}/libxml2 -I/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/libiconv/lib/include 

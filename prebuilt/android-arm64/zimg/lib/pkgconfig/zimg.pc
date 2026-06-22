@@ -1,0 +1,14 @@
+prefix=/home/runner/work/ffmpeg-kit/ffmpeg-kit/prebuilt/android-arm64/zimg
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: zimg
+Description: Scaling, colorspace conversion, and dithering library
+Version: 3.0.5
+
+# If building a static library against a C++ runtime other than libstdc++,
+# define STL_LIBS when running configure.
+Libs: -L${libdir} -lzimg
+Libs.private: -lstdc++
+Cflags: -I${includedir}
