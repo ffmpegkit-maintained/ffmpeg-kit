@@ -17,11 +17,20 @@ Tous les 4 paliers ont un produit Gumroad/Maven actif et un build CI vert (véri
 **Pour publier une nouvelle version d'un palier :**
 1. Pousser le tag correspondant (`git tag vX.Y.Z-<suffixe> && git push origin vX.Y.Z-<suffixe>`) — déclenche le build CI.
 2. Pour Free : si le build + 16KB alignment passent, l'étape "Publish to Maven Central" se déclenche automatiquement (gated sur `startsWith(github.ref, 'refs/tags/')`). Rien d'autre à faire.
-3. Pour Basic/Full/Full GPL : une fois le run vert, télécharger l'artifact (`gh run download <run_id>`) puis mettre à jour le fichier sur le produit Gumroad concerné via la CLI `gumroad` (déjà installée/authentifiée) : `gumroad products update <product_id> --file <chemin.aar>`. Attention : `--file` AJOUTE un fichier plutôt que de remplacer — retirer l'ancien manuellement via le dashboard si besoin (pas de primitive CLI propre pour ça).
+3. Pour Basic/Full/Full GPL : **pas d'artifact public** — voir "Sécurité : pas d'exposition publique" ci-dessous. Récupérer l'AAR final depuis `ffmpegkit-maintained/ci-cache-private` (branche `basic`/`full`/`gpl` selon le palier), puis mettre à jour le fichier sur le produit Gumroad concerné : `gumroad products update <product_id> --file <chemin.aar>`. Attention : `--file` AJOUTE un fichier plutôt que de remplacer — retirer l'ancien manuellement via le dashboard si besoin (pas de primitive CLI propre pour ça).
+
+## Sécurité : pas d'exposition publique des AAR payants
+
+Le repo `ffmpeg-kit` est **public**. Deux pièges déjà rencontrés et corrigés (2026-06-22) :
+
+1. **`actions/upload-artifact` sur un repo public** = téléchargeable par n'importe quel utilisateur GitHub connecté (gratuit), pas seulement les collaborateurs. Retiré des 3 workflows payants (`build.yml`, `build-basic.yml`, `build-gpl.yml`). Le palier Free garde son artifact (normal, c'est gratuit de toute façon).
+2. **Une branche de checkpoint sur ce même repo public** = clonable par n'importe qui sans authentification (`git clone --branch ci-cache ...`). Les branches `ci-cache`/`ci-cache-basic`/`ci-cache-gpl` exposaient le `.aar` complet — supprimées.
+
+**Solution permanente** : les 3 paliers payants poussent maintenant leurs checkpoints (et le `.aar` final) vers un repo **privé séparé** `ffmpegkit-maintained/ci-cache-private` (branches `basic`/`full`/`gpl`), via le secret `CI_CACHE_TOKEN` (fine-grained PAT, scope Contents: read/write sur ce seul repo). Ne jamais réintroduire `actions/upload-artifact` ou une branche de cache sur le repo `ffmpeg-kit` lui-même pour ces 3 paliers — toujours passer par `ci-cache-private`.
 
 ## Secrets déjà configurés sur le repo GitHub
 
-`OSSRH_USERNAME`, `OSSRH_PASSWORD` (token Sonatype), `GPG_PRIVATE_KEY`, `GPG_PASSPHRASE` (clé GPG ID court `15567C31`, ID long `092C1CFA15567C31`) — utilisés par `build-free.yml` pour signer/publier sur Maven Central. Ne jamais redemander/régénérer ces secrets sans raison — ils sont déjà en place.
+`OSSRH_USERNAME`, `OSSRH_PASSWORD` (token Sonatype), `GPG_PRIVATE_KEY`, `GPG_PASSPHRASE` (clé GPG ID court `15567C31`, ID long `092C1CFA15567C31`) — utilisés par `build-free.yml` pour signer/publier sur Maven Central. `CI_CACHE_TOKEN` (fine-grained PAT, repo `ffmpegkit-maintained/ci-cache-private` uniquement, Contents: read/write) — utilisé par `build.yml`/`build-basic.yml`/`build-gpl.yml` pour les checkpoints privés. Ne jamais redemander/régénérer ces secrets sans raison — ils sont déjà en place.
 
 ## Gumroad
 
