@@ -8,9 +8,11 @@
 | Palier | Prix | Workflow CI | Tag déclencheur | Distribution |
 |---|---|---|---|---|
 | Free | $0 | `build-free.yml` | `v*-free` (ex: `v6.0.1-free`) | Maven Central, `dev.ffmpegkit-maintained:ffmpeg-kit-free` |
-| Basic | $19 / $49 (team) | `build-basic.yml` | `v*-basic` | Gumroad (produit à créer, voir tâche #16) |
-| Full | $29 / $75 (team) | `build.yml` | `v*` (sans suffixe) | Gumroad produit `xzuhjx` |
-| Full GPL | $39 / $99 (team) | `build-gpl.yml` | `v*-gpl` | Gumroad (produit à créer, voir tâche #17) |
+| Basic | $19 / $49 (team) | `build-basic.yml` | `v*-basic` | Gumroad `dmL2RoVC0QSkAHn9SG77aA==` (https://ffmpegkit.gumroad.com/l/iqppf) |
+| Full | $29 / $75 (team) | `build.yml` | `v*` (sans suffixe, exclut `-free`/`-basic`/`-gpl`) | Gumroad `xzuhjx` |
+| Full GPL | $39 / $99 (team) | `build-gpl.yml` | `v*-gpl` | Gumroad `S0e0mRGg2W-aD3hH60qUvQ==` (https://ffmpegkit.gumroad.com/l/bctphn) |
+
+Tous les 4 paliers ont un produit Gumroad/Maven actif et un build CI vert (vérifié 2026-06-22, après correction du bug compileSdk 33→35 — voir commit `4585ad8`).
 
 **Pour publier une nouvelle version d'un palier :**
 1. Pousser le tag correspondant (`git tag vX.Y.Z-<suffixe> && git push origin vX.Y.Z-<suffixe>`) — déclenche le build CI.
@@ -23,6 +25,7 @@
 
 ## Gumroad
 
-- Produit existant `xzuhjx` = palier **Full**, actuellement encore à l'ancien prix $19/$49 (tâche #15 : repricer vers $29/$75).
+- `xzuhjx` = **Full** ($29/$75), `dmL2RoVC0QSkAHn9SG77aA==` = **Basic** ($19/$49), `S0e0mRGg2W-aD3hH60qUvQ==` = **Full GPL** ($39/$99). Tous publiés (`published: true`).
 - Variante de prix gérée via `gumroad variant-categories list --product <id>` puis `gumroad variants update <variant_id> --product <id> --category <cat_id> --price-difference <montant>`.
-- Page Full GPL : toujours inclure l'indicateur visuel ⚠️ pour la licence GPL-3.0 (demande explicite de l'utilisateur).
+- Page Full GPL : toujours inclure l'indicateur visuel ⚠️ pour la licence GPL-3.0 (demande explicite de l'utilisateur) — déjà fait dans la description actuelle.
+- `gumroad products update <id> --file <path>` AJOUTE un fichier plutôt que de remplacer — fichiers orphelins accumulés sur `xzuhjx` (2 anciens AAR), à retirer manuellement via le dashboard si besoin. Pas de primitive CLI propre pour supprimer un fichier.
