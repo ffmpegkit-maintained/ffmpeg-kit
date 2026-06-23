@@ -1,0 +1,14 @@
+prefix=/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-6.0-lts/prebuilt/android-arm64/ffmpeg
+exec_prefix=${prefix}
+libdir=/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-6.0-lts/prebuilt/android-arm64/ffmpeg/lib
+includedir=/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-6.0-lts/prebuilt/android-arm64/ffmpeg/include
+
+Name: libavcodec
+Description: FFmpeg codec library
+Version: 60.3.100
+Requires: 
+Requires.private: libswresample >= 4.10.100, libavutil >= 58.2.100
+Conflicts:
+Libs: -L${libdir}  -lavcodec 
+Libs.private: -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-6.0-lts/prebuilt/android-arm64/libvpx/lib -lvpx -lm -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-6.0-lts/prebuilt/android-arm64/libvpx/lib -lvpx -lm -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-6.0-lts/prebuilt/android-arm64/libvpx/lib -lvpx -lm -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-6.0-lts/prebuilt/android-arm64/libvpx/lib -lvpx -lm -pthread -lm -latomic -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-6.0-lts/prebuilt/android-arm64/dav1d/lib -ldav1d -pthread -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-6.0-lts/prebuilt/android-arm64/libaom/lib -laom -lm -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-6.0-lts/prebuilt/android-arm64/opus/lib -lopus -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-6.0-lts/prebuilt/android-arm64/speex/lib -lspeex -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-6.0-lts/prebuilt/android-arm64/libvorbis/lib -lvorbis -lm -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-6.0-lts/prebuilt/android-arm64/libogg/lib -logg -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-6.0-lts/prebuilt/android-arm64/libvorbis/lib -lvorbisenc -lvorbis -lm -L/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-6.0-lts/prebuilt/android-arm64/libogg/lib -logg
+Cflags: -I${includedir}
