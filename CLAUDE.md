@@ -3,21 +3,39 @@
 - Dorénavant, chaque fois que c'est nécessaire (nouvelle version, fix, changement de palier/tier), prends en charge toi-même la mise à jour sur **Maven Central** et sur **Gumroad** sans attendre qu'on te le demande explicitement à chaque fois.
 - Toute publication réelle vers Maven Central (tag `v*-free`) est permanente — informe l'utilisateur avant de pousser ce genre de tag, mais procède avec ton meilleur jugement si le contexte indique que c'est attendu.
 
-## Les 4 paliers et comment les publier
+## Les lignes LTS et leurs produits Gumroad/Maven
+
+### Ligne 6.0 LTS
 
 | Palier | Prix | Workflow CI | Tag déclencheur | Distribution |
 |---|---|---|---|---|
 | Free | $0 | `build-free.yml` | `v*-free` (ex: `v6.0.1-free`) | Maven Central, `dev.ffmpegkit-maintained:ffmpeg-kit-free` |
 | Basic | $19 / $49 (team) | `build-basic.yml` | `v*-basic` | Gumroad `dmL2RoVC0QSkAHn9SG77aA==` (https://ffmpegkit.gumroad.com/l/iqppf) |
-| Full | $29 / $75 (team) | `build.yml` | `v*` (sans suffixe, exclut `-free`/`-basic`/`-gpl`) | Gumroad `xzuhjx` |
+| Full | $29 / $75 (team) | `build.yml` | `v*` (sans suffixe, exclut `-free`/`-basic`/`-gpl`) | Gumroad `sO6O3VHxKlhjlWtN4SjnCg==` (https://ffmpegkit.gumroad.com/l/ffmpegkit-lts-android) |
 | Full GPL | $39 / $99 (team) | `build-gpl.yml` | `v*-gpl` | Gumroad `S0e0mRGg2W-aD3hH60qUvQ==` (https://ffmpegkit.gumroad.com/l/bctphn) |
 
-Tous les 4 paliers ont un produit Gumroad/Maven actif et un build CI vert (vérifié 2026-06-22, après correction du bug compileSdk 33→35 — voir commit `4585ad8`).
+### Ligne 7.1 LTS
+
+| Palier | Prix | Workflow CI | Tag déclencheur | Distribution |
+|---|---|---|---|---|
+| Free | $0 | `build-71-free.yml` | `v*-free71` (ex: `v7.1.5-free71`) | Maven Central, `dev.ffmpegkit-maintained:ffmpeg-kit-free-71` |
+| Basic | $19 / $49 (team) | `build-71-basic.yml` | `v*-basic71` | Gumroad `62h6MdrsmlQGwn5T_4W2DQ==` (https://ffmpegkit.gumroad.com/l/msfal) |
+| Full | $29 / $75 (team) | `build-71-full.yml` | `v*-full71` | Gumroad `07IGSzVpUhfg8Fo9ejndJQ==` (https://ffmpegkit.gumroad.com/l/qnaow) |
+| Full GPL | $39 / $99 (team) | `build-71-gpl.yml` | `v*-gpl71` | Gumroad `5e-7hgVcyjhJLkM-kUkXAw==` (https://ffmpegkit.gumroad.com/l/cgfhid) |
+
+### Ligne 8.1 LTS (en cours)
+
+| Palier | Prix | Workflow CI | Tag déclencheur | Distribution |
+|---|---|---|---|---|
+| Free | $0 | `build-81-free.yml` | `v*-free81` | Maven Central, `dev.ffmpegkit-maintained:ffmpeg-kit-free-81` (pas encore publié) |
+| Basic | $19 / $49 (team) | `build-81-basic.yml` | `v*-basic81` | Gumroad (pas encore créé) |
+| Full | $29 / $75 (team) | `build-81-full.yml` | `v*-full81` | Gumroad (pas encore créé) |
+| Full GPL | $39 / $99 (team) | `build-81-gpl.yml` | `v*-gpl81` | Gumroad (pas encore créé) |
 
 **Pour publier une nouvelle version d'un palier :**
 1. Pousser le tag correspondant (`git tag vX.Y.Z-<suffixe> && git push origin vX.Y.Z-<suffixe>`) — déclenche le build CI.
 2. Pour Free : si le build + 16KB alignment passent, l'étape "Publish to Maven Central" se déclenche automatiquement (gated sur `startsWith(github.ref, 'refs/tags/')`). Rien d'autre à faire.
-3. Pour Basic/Full/Full GPL : **pas d'artifact public** — voir "Sécurité : pas d'exposition publique" ci-dessous. Récupérer l'AAR final depuis `ffmpegkit-maintained/ci-cache-private` (branche `basic`/`full`/`gpl` selon le palier), puis mettre à jour le fichier sur le produit Gumroad concerné : `gumroad products update <product_id> --file <chemin.aar>`. Attention : `--file` AJOUTE un fichier plutôt que de remplacer — retirer l'ancien manuellement via le dashboard si besoin (pas de primitive CLI propre pour ça).
+3. Pour Basic/Full/Full GPL : **pas d'artifact public** — voir "Sécurité : pas d'exposition publique" ci-dessous. Récupérer l'AAR final depuis `ffmpegkit-maintained/ci-cache-private` (branche `<tier>` pour 6.0, `71-<tier>` pour 7.1, `81-<tier>` pour 8.1), puis mettre à jour le fichier sur le produit Gumroad concerné : `gumroad products update <product_id> --file <chemin.aar>`. Attention : `--file` AJOUTE un fichier plutôt que de remplacer — retirer l'ancien manuellement via le dashboard si besoin (pas de primitive CLI propre pour ça).
 
 ## Sécurité : pas d'exposition publique des AAR payants
 
@@ -34,7 +52,11 @@ Le repo `ffmpeg-kit` est **public**. Deux pièges déjà rencontrés et corrigé
 
 ## Gumroad
 
-- `xzuhjx` = **Full** ($29/$75), `dmL2RoVC0QSkAHn9SG77aA==` = **Basic** ($19/$49), `S0e0mRGg2W-aD3hH60qUvQ==` = **Full GPL** ($39/$99). Tous publiés (`published: true`).
+**Ligne 6.0 :** `dmL2RoVC0QSkAHn9SG77aA==` = Basic, `sO6O3VHxKlhjlWtN4SjnCg==` = Full (alias `ffmpegkit-lts-android`), `S0e0mRGg2W-aD3hH60qUvQ==` = Full GPL. Tous publiés.
+
+**Ligne 7.1 :** `62h6MdrsmlQGwn5T_4W2DQ==` = Basic-71 (https://ffmpegkit.gumroad.com/l/msfal), `07IGSzVpUhfg8Fo9ejndJQ==` = Full-71 (https://ffmpegkit.gumroad.com/l/qnaow), `5e-7hgVcyjhJLkM-kUkXAw==` = Full GPL-71 (https://ffmpegkit.gumroad.com/l/cgfhid). Tous publiés avec AAR v7.1.5.
+
 - Variante de prix gérée via `gumroad variant-categories list --product <id>` puis `gumroad variants update <variant_id> --product <id> --category <cat_id> --price-difference <montant>`.
-- Page Full GPL : toujours inclure l'indicateur visuel ⚠️ pour la licence GPL-3.0 (demande explicite de l'utilisateur) — déjà fait dans la description actuelle.
-- `gumroad products update <id> --file <path>` AJOUTE un fichier plutôt que de remplacer — fichiers orphelins accumulés sur `xzuhjx` (2 anciens AAR), à retirer manuellement via le dashboard si besoin. Pas de primitive CLI propre pour supprimer un fichier.
+- Page Full GPL : toujours inclure l'indicateur visuel ⚠️ pour la licence GPL-3.0 (demande explicite de l'utilisateur).
+- `gumroad products update <id> --file <path>` AJOUTE un fichier plutôt que de remplacer — fichiers orphelins possibles, retirer l'ancien manuellement via le dashboard. Pas de primitive CLI propre pour supprimer un fichier.
+- IDs de variante-catégorie dont l'ID commence par `-` : le CLI interprète ça comme un flag. Passer par l'API directement : `curl -X DELETE "https://api.gumroad.com/v2/products/<pid>/variant_categories/<cid>" -H "Authorization: Bearer <token>"`. Token dans `%APPDATA%\gumroad\config.json`.
