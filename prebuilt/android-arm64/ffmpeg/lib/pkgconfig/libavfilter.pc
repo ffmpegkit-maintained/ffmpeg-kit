@@ -1,0 +1,14 @@
+prefix=/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-7.1-lts/prebuilt/android-arm64/ffmpeg
+exec_prefix=${prefix}
+libdir=/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-7.1-lts/prebuilt/android-arm64/ffmpeg/lib
+includedir=/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-7.1-lts/prebuilt/android-arm64/ffmpeg/include
+
+Name: libavfilter
+Description: FFmpeg audio/video filtering library
+Version: 10.5.100
+Requires: 
+Requires.private: libswscale >= 8.3.100, libavformat >= 61.7.103, libavcodec >= 61.19.101, libswresample >= 5.3.100, libavutil >= 59.39.100
+Conflicts:
+Libs: -L${libdir}  -lavfilter 
+Libs.private: -pthread -lm -latomic
+Cflags: -I${includedir}

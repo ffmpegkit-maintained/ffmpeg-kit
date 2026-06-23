@@ -1,0 +1,14 @@
+prefix=/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-7.1-lts/prebuilt/android-arm64/ffmpeg
+exec_prefix=${prefix}
+libdir=/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-7.1-lts/prebuilt/android-arm64/ffmpeg/lib
+includedir=/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-7.1-lts/prebuilt/android-arm64/ffmpeg/include
+
+Name: libavformat
+Description: FFmpeg container format library
+Version: 61.7.103
+Requires: 
+Requires.private: libavcodec >= 61.19.101, libswresample >= 5.3.100, libavutil >= 59.39.100
+Conflicts:
+Libs: -L${libdir}  -lavformat 
+Libs.private: -lm -latomic
+Cflags: -I${includedir}

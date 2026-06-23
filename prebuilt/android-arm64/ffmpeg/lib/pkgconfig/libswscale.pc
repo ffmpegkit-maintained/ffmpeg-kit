@@ -1,0 +1,14 @@
+prefix=/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-7.1-lts/prebuilt/android-arm64/ffmpeg
+exec_prefix=${prefix}
+libdir=/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-7.1-lts/prebuilt/android-arm64/ffmpeg/lib
+includedir=/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-7.1-lts/prebuilt/android-arm64/ffmpeg/include
+
+Name: libswscale
+Description: FFmpeg image rescaling library
+Version: 8.3.100
+Requires: 
+Requires.private: libavutil >= 59.39.100
+Conflicts:
+Libs: -L${libdir}  -lswscale 
+Libs.private: -lm -latomic
+Cflags: -I${includedir}
