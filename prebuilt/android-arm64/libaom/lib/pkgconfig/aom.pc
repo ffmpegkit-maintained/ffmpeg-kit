@@ -1,0 +1,14 @@
+# libaom pkg-config.
+prefix=/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-8.1-lts/prebuilt/android-arm64/libaom
+exec_prefix=${prefix}
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+
+Name: aom
+Description: Alliance for Open Media AV1 codec library v3.6.1.
+Version: 3.6.1
+Requires:
+Conflicts:
+Libs: -L${libdir} -laom
+Libs.private: -lm -lpthread
+Cflags: -I${includedir}

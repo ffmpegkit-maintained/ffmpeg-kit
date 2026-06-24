@@ -1,0 +1,14 @@
+prefix=/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-8.1-lts/prebuilt/android-arm64/ffmpeg
+exec_prefix=${prefix}
+libdir=/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-8.1-lts/prebuilt/android-arm64/ffmpeg/lib
+includedir=/home/runner/work/ffmpeg-kit/ffmpeg-kit/android-8.1-lts/prebuilt/android-arm64/ffmpeg/include
+
+Name: libavdevice
+Description: FFmpeg device handling library
+Version: 62.3.102
+Requires: 
+Requires.private: libavfilter >= 11.14.102, libswscale >= 9.5.102, libavformat >= 62.12.102, libavcodec >= 62.28.102, libswresample >= 6.3.102, libavutil >= 60.26.102
+Conflicts:
+Libs: -L${libdir}  -lavdevice 
+Libs.private: -lm -latomic -landroid -lcamera2ndk -lmediandk -pthread
+Cflags: -I${includedir}
