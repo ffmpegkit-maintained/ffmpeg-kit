@@ -1,7 +1,7 @@
 # Instructions pour ce projet (ffmpeg-kit)
 
 - Dorénavant, chaque fois que c'est nécessaire (nouvelle version, fix, changement de palier/tier), prends en charge toi-même la mise à jour sur **Maven Central** et sur **Gumroad** sans attendre qu'on te le demande explicitement à chaque fois.
-- **Audit de qualité après chaque build CI réussi** : dès qu'un build passe (Free, Basic, Full, Full GPL, toutes lignes confondues), effectue un audit de qualité complet du palier concerné — JNI (fuites, use-after-free), Java (NPE, ressources non fermées, logique SRT), sécurité (exposition AAR, workflow triggers), cohérence de version, et documentation. Signale les problèmes classés Critique / Moyen / Mineur sans attendre qu'on le demande.
+- **Audit de qualité après chaque build CI réussi** : dès qu'un build passe (Free, Basic, Full, Full GPL, toutes lignes confondues), effectue un audit de qualité complet du palier concerné — JNI (fuites, use-after-free), Java (NPE, ressources non fermées, logique SRT), sécurité (exposition AAR, workflow triggers), cohérence de version, et documentation. Affiche toujours le résultat sous forme de **tableau Markdown** avec les colonnes `Sévérité | Catégorie | Description` (valeurs de sévérité : Critique / Moyen / Mineur / OK). Signale sans attendre qu'on le demande.
 - Toute publication réelle vers Maven Central (tag `v*-free`) est permanente — informe l'utilisateur avant de pousser ce genre de tag, mais procède avec ton meilleur jugement si le contexte indique que c'est attendu.
 
 ## Les lignes LTS et leurs produits Gumroad/Maven
