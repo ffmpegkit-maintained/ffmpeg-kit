@@ -30,8 +30,8 @@
 |---|---|---|---|---|
 | Free | $0 | `build-81-free.yml` | `v*-free81` | Maven Central, `dev.ffmpegkit-maintained:ffmpeg-kit-free-81` |
 | Basic | $24 | `build-81-basic.yml` | `v*-basic81` | Gumroad `JAyvuyLzfKMAnL14Fx-DHg==` (https://ffmpegkit.gumroad.com/l/nxvxzc) |
-| Full | $34 | `build-81-full.yml` | `v*-full81` | Gumroad `d0-0nZ-6DRF_U4FntcsqdA==` (https://ffmpegkit.gumroad.com/l/sogbka) — **ARCHIVÉ temporairement** (Whisper JNI non implémenté) |
-| Full GPL | $49 | `build-81-gpl.yml` | `v*-gpl81` | Gumroad `hu_dGzO9SBO6VNTqfGhWdA==` (https://ffmpegkit.gumroad.com/l/axqjy) — **ARCHIVÉ temporairement** (Whisper JNI non implémenté) |
+| Full | $34 | `build-81-full.yml` | `v*-full81` | Gumroad `d0-0nZ-6DRF_U4FntcsqdA==` (https://ffmpegkit.gumroad.com/l/sogbka) — **ACTIF** (WhisperKit JNI implémenté et validé via [whisper-demo-android](https://github.com/ffmpegkit-maintained/whisper-demo-android)) |
+| Full GPL | $49 | `build-81-gpl.yml` | `v*-gpl81` | Gumroad `hu_dGzO9SBO6VNTqfGhWdA==` (https://ffmpegkit.gumroad.com/l/axqjy) — **ACTIF** (WhisperKit JNI implémenté et validé via [whisper-demo-android](https://github.com/ffmpegkit-maintained/whisper-demo-android)) |
 
 **Pour publier une nouvelle version d'un palier :**
 1. Pousser le tag correspondant (`git tag vX.Y.Z-<suffixe> && git push origin vX.Y.Z-<suffixe>`) — déclenche le build CI.
