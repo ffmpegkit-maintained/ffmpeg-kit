@@ -30,8 +30,8 @@
 |---|---|---|---|---|
 | Free | $0 | `build-81-free.yml` | `v*-free81` | Maven Central, `dev.ffmpegkit-maintained:ffmpeg-kit-free-81` |
 | Basic | $24 | `build-81-basic.yml` | `v*-basic81` | Gumroad `JAyvuyLzfKMAnL14Fx-DHg==` (https://ffmpegkit.gumroad.com/l/nxvxzc) |
-| Full | $34 | `build-81-full.yml` | `v*-full81` | Gumroad `d0-0nZ-6DRF_U4FntcsqdA==` (https://ffmpegkit.gumroad.com/l/sogbka) — **ACTIF** (WhisperKit JNI implémenté et validé via [whisper-demo-android](https://github.com/ffmpegkit-maintained/whisper-demo-android)) |
-| Full GPL | $49 | `build-81-gpl.yml` | `v*-gpl81` | Gumroad `hu_dGzO9SBO6VNTqfGhWdA==` (https://ffmpegkit.gumroad.com/l/axqjy) — **ACTIF** (WhisperKit JNI implémenté et validé via [whisper-demo-android](https://github.com/ffmpegkit-maintained/whisper-demo-android)) |
+| Full | $34 / $89 (team) | `build-81-full.yml` | `v*-full81` | Gumroad `d0-0nZ-6DRF_U4FntcsqdA==` (https://ffmpegkit.gumroad.com/l/sogbka) — **ACTIF** (WhisperKit JNI implémenté et validé via [whisper-demo-android](https://github.com/ffmpegkit-maintained/whisper-demo-android)) |
+| Full GPL | $49 / $124 (team) | `build-81-gpl.yml` | `v*-gpl81` | Gumroad `hu_dGzO9SBO6VNTqfGhWdA==` (https://ffmpegkit.gumroad.com/l/axqjy) — **ACTIF** (WhisperKit JNI implémenté et validé via [whisper-demo-android](https://github.com/ffmpegkit-maintained/whisper-demo-android)) |
 
 **Pour publier une nouvelle version d'un palier :**
 1. Pousser le tag correspondant (`git tag vX.Y.Z-<suffixe> && git push origin vX.Y.Z-<suffixe>`) — déclenche le build CI.
@@ -57,7 +57,21 @@ Le repo `ffmpeg-kit` est **public**. Deux pièges déjà rencontrés et corrigé
 
 **Ligne 7.1 :** `62h6MdrsmlQGwn5T_4W2DQ==` = Basic-71 (https://ffmpegkit.gumroad.com/l/msfal), `07IGSzVpUhfg8Fo9ejndJQ==` = Full-71 (https://ffmpegkit.gumroad.com/l/qnaow), `5e-7hgVcyjhJLkM-kUkXAw==` = Full GPL-71 (https://ffmpegkit.gumroad.com/l/cgfhid). Tous publiés avec AAR v7.1.5.
 
-- Variante de prix gérée via `gumroad variant-categories list --product <id>` puis `gumroad variants update <variant_id> --product <id> --category <cat_id> --price-difference <montant>`.
+### Grille tarifaire canonique (source de vérité)
+
+Prix de référence — garder synchronisés : checkout Gumroad **ET** texte « Pricing » de la fiche **ET** tableaux ci-dessus **ET** README. (En juin 2026, le checkout live avait dérivé au-dessus de la doc — Full $49/$127, GPL $69/$179 — puis a été réaligné sur cette grille.)
+
+| Palier | Individual | Team (5 devs) | Mécanique Gumroad |
+|---|---|---|---|
+| Basic 8.1 | $24 | — | prix de base seul |
+| Full 8.1 | $34 | $89 | base `--price 34.00` + variante Team `--price-difference 55.00` |
+| Full GPL 8.1 | $49 | $124 | base `--price 49.00` + variante Team `--price-difference 75.00` |
+
+Le prix Individual = **prix de base du produit** (`gumroad products update <id> --price 34.00`). Le prix Team = base + différence de la variante « Version » → « Team / Company (5 devs) ».
+
+**IDs de variante « Team » (8.1) :** Full `91uSONCp_RPHjMtAgEx52g==` (catégorie `HdaWL5N9sYmuBv4pPdyPNA==`) · Full GPL `CaT4TwKSkCFgMN-Jy1VCJQ==` (catégorie `NkWe8NNhZ3sZxbvacwvO2w==`).
+
+- Variante de prix gérée via `gumroad variant-categories list --product <id>` puis `gumroad variants update <variant_id> --product <id> --category <cat_id> --price-difference <montant>`. Lister les options : `gumroad variants list --product <id> --category <cat_id> --json`. Toujours tester avec `--dry-run` avant d'appliquer.
 - Page Full GPL : toujours inclure l'indicateur visuel ⚠️ pour la licence GPL-3.0 (demande explicite de l'utilisateur).
 - `gumroad products update <id> --file <path>` AJOUTE un fichier plutôt que de remplacer — fichiers orphelins possibles, retirer l'ancien manuellement via le dashboard. Pas de primitive CLI propre pour supprimer un fichier.
 - IDs de variante-catégorie dont l'ID commence par `-` : le CLI interprète ça comme un flag. Passer par l'API directement : `curl -X DELETE "https://api.gumroad.com/v2/products/<pid>/variant_categories/<cid>" -H "Authorization: Bearer <token>"`. Token dans `%APPDATA%\gumroad\config.json`.
