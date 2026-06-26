@@ -57,6 +57,25 @@ Le repo `ffmpeg-kit` est **public**. Deux pièges déjà rencontrés et corrigé
 
 **Ligne 7.1 :** `62h6MdrsmlQGwn5T_4W2DQ==` = Basic-71 (https://ffmpegkit.gumroad.com/l/msfal), `07IGSzVpUhfg8Fo9ejndJQ==` = Full-71 (https://ffmpegkit.gumroad.com/l/qnaow), `5e-7hgVcyjhJLkM-kUkXAw==` = Full GPL-71 (https://ffmpegkit.gumroad.com/l/cgfhid). Tous publiés avec AAR v7.1.5.
 
+### Titres produits canoniques (Gumroad)
+
+Format (mis à jour 2026-06-26) :
+`FFmpegKit <ligne> LTS <Tier>[ x264/x265][ + Whisper] Prebuilt AAR — Android 15+ Ready, API 24+, 16KB page aligned (arm64)`
+
+Règles : « + Whisper » sur **8.1 Full / Full GPL uniquement** (Whisper est 8.1-only) ; « x264/x265 » sur les **GPL 6.0 / 7.1** (différenciateur, pas de Whisper là). Garder ≤ ~110 caractères, mots-clés en tête. Modifier via `gumroad products update <id> --name "<titre>"` (tester en `--dry-run`).
+
+| Ligne | Tier | Titre |
+|---|---|---|
+| 6.0 | Basic    | FFmpegKit 6.0 LTS Basic Prebuilt AAR — Android 15+ Ready, API 24+, 16KB page aligned (arm64) |
+| 6.0 | Full     | FFmpegKit 6.0 LTS Full Prebuilt AAR — Android 15+ Ready, API 24+, 16KB page aligned (arm64) |
+| 6.0 | Full GPL | FFmpegKit 6.0 LTS Full GPL x264/x265 Prebuilt AAR — Android 15+ Ready, API 24+, 16KB page aligned (arm64) |
+| 7.1 | Basic    | FFmpegKit 7.1 LTS Basic Prebuilt AAR — Android 15+ Ready, API 24+, 16KB page aligned (arm64) |
+| 7.1 | Full     | FFmpegKit 7.1 LTS Full Prebuilt AAR — Android 15+ Ready, API 24+, 16KB page aligned (arm64) |
+| 7.1 | Full GPL | FFmpegKit 7.1 LTS Full GPL x264/x265 Prebuilt AAR — Android 15+ Ready, API 24+, 16KB page aligned (arm64) |
+| 8.1 | Basic    | FFmpegKit 8.1 LTS Basic Prebuilt AAR — Android 15+ Ready, API 24+, 16KB page aligned (arm64) |
+| 8.1 | Full     | FFmpegKit 8.1 LTS Full + Whisper Prebuilt AAR — Android 15+ Ready, API 24+, 16KB page aligned (arm64) |
+| 8.1 | Full GPL | FFmpegKit 8.1 LTS Full GPL + Whisper Prebuilt AAR — Android 15+ Ready, API 24+, 16KB page aligned (arm64) |
+
 ### Grille tarifaire canonique (source de vérité)
 
 Prix de référence — garder synchronisés : checkout Gumroad **ET** texte « Pricing » de la fiche **ET** tableaux ci-dessus **ET** README. (En juin 2026, le checkout live avait dérivé au-dessus de la doc — Full $49/$127, GPL $69/$179 — puis a été réaligné sur cette grille.)
